@@ -28,6 +28,7 @@ namespace P1
             var basePrice = 0.0m;
             var strikeRate = 0.0;
             var average = 0.0;
+            var rating = 0.0;
 
             while (true)
             {
@@ -55,12 +56,87 @@ namespace P1
                 notOuts = Convert.ToInt32(Console.ReadLine());
 
                 average = (Convert.ToDouble(runs) / (Convert.ToDouble(innings) - Convert.ToDouble(notOuts)));
-                
+
                 strikeRate = (Convert.ToDouble(runs) / Convert.ToDouble(ballsFaced) * 100);
-                
-                Console.WriteLine($"{name} played {innings} innings and scored {runs} runs with Batting " +
-                $"Average of {Math.Ceiling(average * 100) / 100} and Strike Rate of " +
-                $"{Math.Ceiling(strikeRate * 100) / 100}");
+
+                if (average >= 40)
+                {
+                    rating += 2;
+                }
+                else if (average < 40 && average >= 30)
+                {
+                    rating += 1.75;
+                }
+                else if (average < 30 && average >= 25)
+                {
+                    rating += 1.5;
+                }
+                else if (average < 25)
+                {
+                    rating += 1;
+                }
+
+                if (strikeRate >= 200)
+                {
+                    rating += 2;
+                }
+                else if (strikeRate >= 150 && strikeRate < 200)
+                {
+                    rating += 1.5;
+                }
+                else if (strikeRate >= 100 && strikeRate < 150)
+                {
+                    rating += 1;
+                }
+                else if (strikeRate < 100)
+                {
+                    rating += 0;
+                }
+
+                if (runs >= 1000)
+                {
+                    rating += 1;
+                }
+                else
+                {
+                    rating += 0;
+                }
+
+                switch (Convert.ToInt32(rating))
+                {
+                    case 5:
+                        basePrice = 200000m;
+                        break;
+                    case 4:
+                        basePrice = 100000m;
+                        break;
+                    case 3:
+                        basePrice = 75000m;
+                        break;
+                    case 2:
+                        basePrice = 500000m;
+                        break;
+                    case 1:
+                        basePrice = 200000m;
+                        break;
+                    default:
+                        Console.WriteLine("No base price for player with rating 0");
+                        break;
+                }
+
+                // Console.WriteLine($"{name} played {innings} innings and scored {runs} runs with Batting " +
+                // $"Average of {Math.Ceiling(average * 100) / 100} and Strike Rate of " +
+                // $"{Math.Ceiling(strikeRate * 100) / 100} with rating of {rating} "
+                // + $"and base Price of {basePrice}");
+
+                Console.WriteLine($"Player Name: {name}");
+                Console.WriteLine($"Innings: {innings}");
+                Console.WriteLine($"Runs Scored: {runs}");
+                Console.WriteLine($"Batting Average: {Math.Ceiling(average * 100) / 100}");
+                Console.WriteLine($"Strike Rate: {Math.Ceiling(strikeRate * 100) / 100}");
+                Console.WriteLine($"Player Rating: {rating}");
+                Console.WriteLine($"Base Price: {basePrice}");
+
             }
         }
     }
