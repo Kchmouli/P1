@@ -6,7 +6,7 @@ namespace P1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Welcome to CricketApp");
             // Declare and use a bool, char type.
             // Implement at least one loop
             // Implement at least one if or if-else branch with conditions
@@ -29,8 +29,38 @@ namespace P1
             var strikeRate = 0.0;
             var average = 0.0;
 
-            while(true){
+            while (true)
+            {
+                Console.WriteLine("Press q to quit or any key to continue");
+                var quit = Console.ReadLine();
+                if (quit == "q")
+                {
+                    Console.WriteLine("Thank you for using Cricket App");
+                    break;
+                }
+
+                Console.WriteLine("Enter Player Name");
+                name = Console.ReadLine();
+
+                Console.WriteLine("Enter number of Innings");
+                innings = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter number of Runs");
+                runs = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter number of balls faced");
+                ballsFaced = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Enter number of Not Outs");
+                notOuts = Convert.ToInt32(Console.ReadLine());
+
+                average = (Convert.ToDouble(runs) / (Convert.ToDouble(innings) - Convert.ToDouble(notOuts)));
                 
+                strikeRate = (Convert.ToDouble(runs) / Convert.ToDouble(ballsFaced) * 100);
+                
+                Console.WriteLine($"{name} played {innings} innings and scored {runs} runs with Batting " +
+                $"Average of {Math.Ceiling(average * 100) / 100} and Strike Rate of " +
+                $"{Math.Ceiling(strikeRate * 100) / 100}");
             }
         }
     }
