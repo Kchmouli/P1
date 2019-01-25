@@ -137,6 +137,10 @@ namespace P1
                 Console.WriteLine($"Player Rating: {rating}");
                 Console.WriteLine($"Base Price: {basePrice}");
 
+                Console.WriteLine($"{name} scored {runs} with average {Math.Ceiling(average * 100) / 100}"
+                +"and strike rate {Math.Ceiling(strikeRate * 100) / 100}"
+                +$"\n{name} has rating of {rating}");
+
             }
         }
     }
