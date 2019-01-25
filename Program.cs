@@ -29,12 +29,13 @@ namespace P1
             var strikeRate = 0.0;
             var average = 0.0;
             var rating = 0.0;
+            var boo = true;
 
-            while (true)
+            while (boo)
             {
-                Console.WriteLine("Press q to quit or any key to continue");
+                Console.WriteLine("Press q to quit or any character to continue");
                 var quit = Console.ReadLine();
-                if (quit == "q")
+                if (Convert.ToChar(quit) == 'q')
                 {
                     Console.WriteLine("Thank you for using Cricket App");
                     break;
