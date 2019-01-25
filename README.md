@@ -14,3 +14,5 @@ Rate the batsman based on  strike rate and average.
 Then assign base price for batsman based on rating.
 
 Note: Not outs < Number of innings
+
+![screenshot 4](https://user-images.githubusercontent.com/31714306/51722958-ea161680-201c-11e9-84db-a5d4d9ba1f49.png)
